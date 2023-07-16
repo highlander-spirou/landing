@@ -1,0 +1,58 @@
+---
+interface content {
+  color: string;
+  date: string;
+  content: string;
+}
+
+interface Props {
+  contents: content[];
+}
+
+import TimelineList from "@components/TimelineList.astro";
+
+const { contents } = Astro.props;
+---
+
+<body>
+  <div
+    class="flex gap-6 border-t-2 border-t-slate-200 relative w-fit max-w-7xl overflow-scroll no-scrollbar"
+  >
+    {
+      contents.map((x) => {
+        return (
+          <TimelineList color={x.color} date={x.date} content={x.content} />
+        );
+      })
+    }
+  </div>
+</body>
+
+<style is:global>
+  .event-date-primary {
+    @apply text-blue-600 bg-blue-200;
+  }
+  .event-date-success {
+    @apply text-teal-600 bg-teal-100;
+  }
+  .event-date-error {
+    @apply text-rose-500 bg-rose-50;
+  }
+  .event-date-warning {
+    @apply text-amber-500 bg-orange-100;
+  }
+
+  .events-card:before {
+    @apply absolute top-0 border-r-2 border-dashed border-r-slate-200;
+    content: "";
+    height: 36px;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+</style>

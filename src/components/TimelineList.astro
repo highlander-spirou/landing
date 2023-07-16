@@ -1,0 +1,24 @@
+---
+interface Props {
+    color: string;
+    date: string;
+    content: string;
+}
+
+const { color, date, content } = Astro.props;
+const newText = content.split("\n");
+---
+
+<div class="events-card flex flex-col items-center mt-10">
+    <p class={`px-2 py-1 rounded-md w-fit event-date-${color}`}>{date}</p>
+    <p
+        class="mt-2 w-40 h-56 overflow-scroll no-scrollbar text-center"
+    >
+        {
+            newText.map((x, index) => {
+                return (index === 0 ? <>{x}</>: <><br />{x}</>
+                );
+            })
+        }
+    </p>
+</div>

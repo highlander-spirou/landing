@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+
+import logo from "@assets/my logo.png";
+---
+
+<script>
+  const sections = document.querySelectorAll("section");
+
+  window.addEventListener("scroll", () => {
+    let sectionId;
+    sections.forEach((section) => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      sectionId = section.getAttribute("id");
+      if (
+        window.scrollY > sectionTop &&
+        window.scrollY <= sectionTop + sectionHeight
+      ) {
+        document
+          .querySelector(".navigation__ a[href*=" + sectionId + "]")
+          .classList.add("active");
+        document
+          .querySelector(".navigation__" + sectionId)
+          .classList.remove("hidden");
+      } else {
+        document
+          .querySelector(".navigation__ a[href*=" + sectionId + "]")
+          .classList.remove("active");
+        document
+          .querySelector(".navigation__" + sectionId)
+          .classList.add("hidden");
+      }
+    });
+  });
+
+  const closeDropdown = () => {
+    var details = document.querySelector("details");
+    details.removeAttribute("open");
+  };
+
+  const btns = [...document.getElementsByClassName("nav-link")];
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      closeDropdown();
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const summaryBox = document.querySelector("details");
+    if (!summaryBox.contains(e.target as any)) {
+      closeDropdown();
+    }
+  });
+</script>
+
+<div
+  class="hidden sticky top-0 z-[999] bg-white h-20 border-b-2 sm:flex justify-between items-center"
+>
+  <div>
+    <Image src={logo} alt="logo" width="110" height="110" />
+  </div>
+  <div class="navigation__ join gap-12 mr-5 font-bold text-xl cursor-pointer">
+    <a
+      class="join-item text-slate-700 hover:text-emerald-600 active"
+      href="#introduction"
+    >
+      Introduction</a
+    >
+    <a
+      class="join-item text-slate-700 hover:text-emerald-600"
+      href="#education"
+    >
+      Education</a
+    >
+    <a
+      class="join-item text-slate-700 hover:text-emerald-600"
+      href="#experiences"
+    >
+      Experiences</a
+    >
+    <a
+      class="join-item text-slate-700 hover:text-emerald-600"
+      href="#projects"
+    >
+      Projects</a
+    >
+  </div>
+</div>
+
+<div
+  class="flex sticky top-0 z-40 bg-white h-20 border-b-2 sm:hidden justify-between items-center"
+>
+  <div><Image src={logo} alt="logo" width="110" height="110" /></div>
+  <div class="flex items-center">
+    <p class="navigation__introduction font-semibold text-emerald-600">Introduction</p>
+    <p class="hidden navigation__education font-semibold text-emerald-600">Education</p>
+    <p class="hidden navigation__experiences font-semibold text-emerald-600">Experiences</p>
+    <p class="hidden navigation__projects font-semibold text-emerald-600">Projects</p>
+
+    <details class="dropdown dropdown-end">
+      <summary class="m-1 btn btn-ghost">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
+        </svg>
+      </summary>
+      <ul
+        class="p-2 shadow menu dropdown-content z-50 bg-base-100 rounded-box w-52"
+      >
+        <li><a href="#introduction" class="p-5 nav-link">Introduction</a></li>
+        <li><a href="#education" class="p-5 nav-link">Education</a></li>
+        <li><a href="#experiences" class="p-5 nav-link">Experiences</a></li>
+        <li><a href="#projects" class="p-5 nav-link">Projects</a></li>
+      </ul>
+    </details>
+  </div>
+</div>
+
+<style>
+  .active {
+    @apply text-emerald-600;
+  }
+</style>

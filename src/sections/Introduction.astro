@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import Art1 from "@assets/splash_art.png";
+---
+
+<section
+  id="introduction"
+  class="min-h-fit sm:h-screen sm:max-h-[750px] bg-red-100 h-screen pt-20"
+>
+  <div class="mt-10 grid grid-cols-2 relative h-80">
+    <Image
+      src={Art1}
+      alt="splash-art"
+      class="justify-self-center w-[250px] h-full bg-gradient-to-b from-slate-200 to-gray-200 rounded-md object-cover"
+    />
+    <div class="max-w-[300px]">
+      <h1 class="text-5xl font-semibold">Hi, I'm Nhân Lê</h1>
+      <p class="my-5 text-2xl">Backend developer</p>
+      <p class="leading-loose">
+        I am thriving in developing API using <code class="code">NodeJS</code> and <code class="code">Python</code> that connected
+        to relational databases (<code class="code">MySQL</code>, <code class="code">PostgreSQL</code>) and <code class="code">MongoDB</code>, and familiar with most modern frontend
+        framework like <code class="code">React</code>, <code class="code">Vue</code>, <code class="code">NextJS</code>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .code {
+    @apply bg-red-100 text-red-500 break-words box-decoration-clone px-1 py-1 rounded-sm
+  }
+</style>

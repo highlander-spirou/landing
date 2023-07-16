@@ -1,0 +1,34 @@
+---
+import cert1 from "@assets/certificates/ML.png";
+import cert2 from "@assets/certificates/data-science.png";
+import cert3 from "@assets/certificates/database.png";
+import cert4 from "@assets/certificates/IELTS.png";
+
+import Carousel from "@components/ImageSlider";
+const imgList = [cert1, cert2, cert3, cert4];
+---
+
+<section id="education" class="pt-20">
+  <div class="min-h-fit sm:h-screen sm:max-h-[750px] bg-red-200">
+    <h1 class="text-5xl font-bold text-center">🎓 Education</h1>
+    <div>
+      I am a graduated at International University, major in Biochemistry.
+      However, I've always interested in technology and have transition myself
+      to software career path in 2019. My main method of study is self-taught,
+      as I spend months teaching myself core concepts of computer science and
+      data analytics. You can find my journey as a developer from the timeline
+      and gallery below
+    </div>
+    <div class="flex justify-center items-center py-3 w-full">
+      <Carousel client:load>
+        {
+          imgList.map((x) => {
+            return (
+              <img src={x.src} alt="splash-art" class="object-scale-down" />
+            );
+          })
+        }
+      </Carousel>
+    </div>
+  </div>
+</section>

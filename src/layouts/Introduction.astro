@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+
+import Art1 from "@assets/splash_art.png";
+import githubIcon from "@assets/github-mark.svg";
+import mailIcon from "@assets/mail-icon.svg";
+import phoneIcon from "@assets/phone-icon.svg";
+import closeIcon from "@assets/close-all.svg";
+
+import SocialBtnGroup from "@components/SocialBtnGroup";
+---
+
+<section id="introduction" class="pt-20">
+  <div class="bg-blue-200 flex flex-col sm:flex-row justify-center sm:gap-10 gap-10">
+    <div class="flex justify-center">
+      <Image
+        src={Art1}
+        alt="splash-art"
+        class="w-[250px] h-80 mt-10 rounded-md"
+      />
+    </div>
+    <div class="sm:w-1/2">
+      <h1 class="text-5xl font-semibold">Hi, I'm Nhân Lê</h1>
+      <p class="my-5 text-2xl">Backend developer</p>
+      <p class="leading-loose">
+        I am thriving in developing API using <code class="code">NodeJS</code> and <code class="code">Python</code> that connected
+        to relational databases (<code class="code">MySQL</code>, <code class="code">PostgreSQL</code>) and <code class="code">MongoDB</code>, and familiar with most modern frontend
+        framework like <code class="code">React</code>, <code class="code">Vue</code>, <code class="code">NextJS</code>
+      </p>
+      <p class="">
+        <p>Contact infomation: </p>
+      </p>
+      <div class="mt-2">
+        <SocialBtnGroup client:load>
+          <img
+            slot="mail_svg"
+            src={mailIcon.src}
+            alt="github"
+            class="w-6 h-6"
+          />
+          <img
+            slot="phone_svg"
+            src={phoneIcon.src}
+            alt="github"
+            class="w-6 h-6"
+          />
+          <img
+            slot="github_svg"
+            src={githubIcon.src}
+            alt="github"
+            class="w-6 h-6"
+          />
+          <img
+            slot="close_all"
+            src={closeIcon.src}
+            alt="github"
+            class="w-6 h-6"
+          />
+        </SocialBtnGroup>
+
+        <div class="">
+          <p class="mt-3 text-3xl font-bold">Keywords: </p>
+          <div class="flex flex-wrap gap-3 mt-3 w-fit">
+            <a class="btn-unstyled btn-outline btn-secondary btn-sm px-2 w-fit"
+              >Performance</a
+            >
+            <a class="btn-unstyled btn-outline btn-secondary btn-sm px-2 w-fit"
+              >Small</a
+            >
+            <a class="btn-unstyled btn-outline btn-secondary btn-sm px-2 w-fit"
+              >Performance</a
+            >
+            <a class="btn-unstyled btn-outline btn-secondary btn-sm px-2 w-fit"
+              >assfjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</a
+            >
+            <a class="btn-unstyled btn-outline btn-secondary btn-sm px-2 w-fit">ass</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .code {
+    @apply bg-red-100 text-red-500 break-words box-decoration-clone px-1 py-1 rounded-sm
+  }
+</style>
