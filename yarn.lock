@@ -491,6 +491,11 @@
   dependencies:
     "@floating-ui/core" "^1.3.1"
 
+"@fontsource-variable/nunito@^5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/nunito/-/nunito-5.0.6.tgz#609e12b4ab6506bc4a9c7d3a7ca0061b5bb11688"
+  integrity sha512-WrjJq+YwiT40Bj/SJp0AxkFStwqyO2AheQ5ufZbpZtI4xz0wed8p/gZINmNAn/s5yv9v+2sVZO8zYWWsBiJ4vw==
+
 "@formatjs/ecma402-abstract@1.17.0":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.17.0.tgz#2ce191a3bde4c65c6684e03fa247062a4a294b9e"
@@ -2178,10 +2183,10 @@ jsonc-parser@^3.2.0:
   resolved "https://registry.yarnpkg.com/jsonc-parser/-/jsonc-parser-3.2.0.tgz#31ff3f4c2b9793f89c67212627c51c6394f88e76"
   integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
 
-keen-slider@^6.8.3, keen-slider@^6.8.5:
-  version "6.8.5"
-  resolved "https://registry.yarnpkg.com/keen-slider/-/keen-slider-6.8.5.tgz#1d96ff3ab77f195fc6cacd2e5aecc35d8ceb9702"
-  integrity sha512-9yoosfffgTCrkmbX8kCUMWsn9KDgPSkxBof5/0yXde001D1xao7i9ppfxQCCK0MLnoCa+Rdssby0jFbTTUM4rw==
+keen-slider@^6.8.3:
+  version "6.8.6"
+  resolved "https://registry.yarnpkg.com/keen-slider/-/keen-slider-6.8.6.tgz#17bb7b219860f291a5ea5fde4496b737bf407a83"
+  integrity sha512-dcEQ7GDBpCjUQA8XZeWh3oBBLLmyn8aoeIQFGL/NTVkoEOsmlnXqA4QykUm/SncolAZYGsEk/PfUhLZ7mwMM2w==
 
 kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.3"
@@ -3498,6 +3503,11 @@ sass-formatter@^0.7.5:
   dependencies:
     suf-log "^2.5.3"
 
+seamless-scroll-polyfill@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/seamless-scroll-polyfill/-/seamless-scroll-polyfill-2.3.4.tgz#d2fd1833993a2ad41a3ac319c65dc839bf0746d5"
+  integrity sha512-Biobd4LDoeFODX1bfiru84GveSajzFELFB3ejMZsRR2TpD73W46uEZYAEqSx5RtKpN2umhGWaoSRivs0ZcHp9g==
+
 section-matter@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/section-matter/-/section-matter-1.0.0.tgz#e9041953506780ec01d59f292a19c7b850b84167"
@@ -3574,9 +3584,9 @@ solid-js@^1.4.3:
     seroval "^0.5.0"
 
 solid-js@^1.6.0:
-  version "1.7.7"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.7.7.tgz#c8b13ce5429983eae10010e11886432588bb4b5e"
-  integrity sha512-SPdYVke/Z6Za24PBTbULyQYPrhGO1ZbPany76atO2zF2dmYn2pCotbsw1JtlgWnr9dK2JbwPGnA3ODTGPLhZNw==
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.7.8.tgz#6856983e3edbcc57b0e003e6fd0c741dd8865892"
+  integrity sha512-XHBWk1FvFd0JMKljko7FfhefJMTSgYEuVKcQ2a8hzRXfiuSJAGsrPPafqEo+f6l+e8Oe3cROSpIL6kbzjC1fjQ==
   dependencies:
     csstype "^3.1.0"
     seroval "^0.5.0"

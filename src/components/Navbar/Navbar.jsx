@@ -2,6 +2,8 @@ import { For, createEffect } from "solid-js";
 import { $navState } from "./NavState";
 import navItems from "./NavItems";
 import "./Navbar.css";
+import ThemeBtn from "@components/ThemeBtn";
+import LangBtn from "@components/ThemeBtn/LangBtn";
 
 const Navbar = () => {
   const { currentSection, setCurrentSection } = $navState;
@@ -31,13 +33,16 @@ const Navbar = () => {
           Nhân Lê
         </a>
       </div>
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1 font-semibold">
+      <div className="flex-none items-center">
+        <LangBtn />
+        <ThemeBtn />
+        <ul className="menu menu-horizontal px-1 font-semibold text-base">
           <For each={navItems}>
             {(item) => (
               <li
-                class={`${currentSection() === item.id ? "radio_active" : ""}`}
-              >
+                class={`${
+                  currentSection() === item.id ? "radio__active" : ""
+                }`}>
                 <a href={`#${item.id}`}>{item.label}</a>
               </li>
             )}

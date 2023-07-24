@@ -1,7 +1,7 @@
 import { createSignal, onCleanup } from "solid-js";
 
 
-const Carousel = ({ children }) => {
+const ImageSlider = ({ children }) => {
   const [curr, setCurr] = createSignal(0);
   const prev = () => {
     setCurr((prev) => (prev === 0 ? 3 : curr() - 1));
@@ -55,7 +55,7 @@ const Carousel = ({ children }) => {
     <>
       <div>
         <div
-          class="overflow-hidden relative bg-gray-200 z-10 aspect-[4/3] w-full sm:h-[390px] rounded-lg border-2"
+          class="overflow-hidden relative bg-gray-200 aspect-[4/3] w-full sm:h-[390px] rounded-lg border-2"
           onTouchStart={(e) => onTouchStart(e)}
           onTouchEnd={(e) => onTouchEnd(e)}
           onTouchMove={(e) => onTouchMove(e)}
@@ -83,9 +83,6 @@ const Carousel = ({ children }) => {
                 />
               </svg>
             </button>
-            <div class="-z-10">
-              <span class="loading loading-bars loading-lg"></span>
-            </div>
             <button class="btn btn-ghost" onclick={() => next()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -122,4 +119,4 @@ const Carousel = ({ children }) => {
   );
 };
 
-export default Carousel;
+export default ImageSlider;

@@ -20,7 +20,7 @@
   @apply text-lg rounded-md flex items-center pl-4 py-3 relative;
 }
 
-.radio_active {
+.radio__active {
   @apply font-semibold text-primary-focus;
 }
 

@@ -1,32 +1,88 @@
 ---
 import { Image } from "astro:assets";
 import Art1 from "@assets/splash_art.png";
+import Contacts from "@components/Contacts";
+import BounceText from '@components/BounceText'
+import { introductionContent } from "src/store/content";
+
+const { lang } = Astro.props;
+const content = introductionContent[lang]
 ---
 
 <section
   id="introduction"
-  class="min-h-fit sm:h-screen sm:max-h-[750px] bg-red-100 h-screen pt-20"
->
-  <div class="mt-10 grid grid-cols-2 relative h-80">
+  class="relative min-h-[750px] h-screen sm:max-h-[650px] flex items-center justify-center sm:block -mt-10 sm:pt-20 sm:pb-5 scroll-mt-20">
+  <div
+    class="relative flex flex-col sm:flex-row gap-10 sm:gap-16 justify-center items-center sm:-ml-[100px] sm:pt-0">
     <Image
       src={Art1}
       alt="splash-art"
-      class="justify-self-center w-[250px] h-full bg-gradient-to-b from-slate-200 to-gray-200 rounded-md object-cover"
+      class="w-72 h-72 sm:w-80 sm:h-96 object-cover rounded-md shadow-2xl bg-gradient-to-b from-slate-200 to-gray-200"
     />
-    <div class="max-w-[300px]">
-      <h1 class="text-5xl font-semibold">Hi, I'm Nhân Lê</h1>
-      <p class="my-5 text-2xl">Backend developer</p>
-      <p class="leading-loose">
-        I am thriving in developing API using <code class="code">NodeJS</code> and <code class="code">Python</code> that connected
-        to relational databases (<code class="code">MySQL</code>, <code class="code">PostgreSQL</code>) and <code class="code">MongoDB</code>, and familiar with most modern frontend
-        framework like <code class="code">React</code>, <code class="code">Vue</code>, <code class="code">NextJS</code>
+    <div class="max-w-[500px]">
+      <BounceText client:load/>
+      <h1 class="text-5xl font-bold">{content.line2}</h1>
+      <div class="typewriter">
+        <h2 class="my-5 text-2xl">Backend developer</h2>
+      </div>
+      <p class="font-medium mb-5 uppercase">{content.line3}</p>
+      <p class="mb-5">
+        ✔ {content.line4}
+        <code class="no-underline cursor-default link link-error">NodeJS</code>
+        {content["line4.1"]}
+        <code class="no-underline cursor-default link link-error">Python</code>
       </p>
+      <p class="mb-5">
+        ✔ {content.line5}
+        <code class="no-underline cursor-default link link-error">NextJS</code>,
+        <code class="no-underline cursor-default link link-error"
+          >Solid + Astro</code
+        >
+      </p>
+      <p class="mb-5">
+        ✔ Database
+        <code class="no-underline cursor-default link link-error">MySQL</code>,
+        <code class="no-underline cursor-default link link-error"
+          >PostgreSQL</code
+        >
+        {content["line4.1"]}
+        <code class="no-underline cursor-default link link-error">MongoDB</code>
+      </p>
+      <div class="mt-2 flex gap-5">
+        <Contacts client:load />
+        <a class="btn btn-primary" href="#education">{content.line7}</a>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .code {
-    @apply bg-red-100 text-red-500 break-words box-decoration-clone px-1 py-1 rounded-sm
+  .typewriter h2 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    letter-spacing: 0.15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret 1s step-end infinite;
+  }
+
+  /* The typing effect */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
   }
 </style>

@@ -1,0 +1,81 @@
+---
+import ThemeBtn from "@components/ThemeBtn";
+
+const navItems = [
+  { id: "introduction", label: "Introduction" },
+  { id: "education", label: "Education" },
+  { id: "experiences", label: "Experiences" },
+];
+---
+
+<script>
+  import $currentSection from "src/store/currentSection";
+
+  $currentSection.subscribe((value) => {
+    Array.from(document.getElementsByClassName("nav__link")).forEach((el) => {
+      el.classList.remove("radio__active");
+    });
+    document
+      .getElementById(`nav__link_${value}`)
+      .classList.add("radio__active");
+  });
+
+  window.addEventListener("click", (e) => {
+    const dropdown = document.getElementById("dropdown__menu");
+    let target = e.target as any;
+    if (!dropdown.contains(target)) {
+      dropdown.removeAttribute("open");
+    }
+  });
+</script>
+
+<div>
+  <div class="navbar bg-base-100 border-b-[1px]">
+    <div class="flex-1">
+      <a class="font-semibold normal-case text-xl cursor-default">Nhân Lê</a>
+    </div>
+    <div class="hidden sm:flex items-center navbar-end">
+      <ul class="menu menu-horizontal px-1 font-semibold text-base">
+        {
+          navItems.map((item) => (
+            <li class="nav__link" id={`nav__link_${item.id}`}>
+              <a href={`#${item.id}`}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <details id="dropdown__menu" class="dropdown dropdown-end">
+      <summary class="m-1 btn btn-ghost">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
+        </svg>
+      </summary>
+      <ul
+        class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-40 hover:bg-none">
+        <li>
+          <div class="flex justify-between">
+            <div>Theme</div>
+            <ThemeBtn client:load />
+          </div>
+        </li>
+        <li><a>Item 2</a></li>
+      </ul>
+    </details>
+  </div>
+</div>
+
+<style>
+  .radio__active {
+    @apply text-primary-focus font-semibold;
+  }
+</style>

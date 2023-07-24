@@ -11,6 +11,7 @@ module.exports = {
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["emerald"],
+    themes: ["emerald", "night"],
   },
+  darkMode: ['class', '[data-theme="night"]'],
 };

@@ -1,6 +1,42 @@
+---
+import { Image } from "astro:assets";
+
+import Collapse from "@components/Collapse/Collapse";
+import ImageSlider from "@components/Slider/ImageSlider";
+
+import cert1 from "@assets/certificates/ML.png";
+import cert2 from "@assets/certificates/data-science.png";
+import cert3 from "@assets/certificates/database.png";
+import cert4 from "@assets/certificates/IELTS.png";
+
+import { educationContent } from "src/store/content";
+
+const imgList = [cert1, cert2, cert3, cert4];
+
+const { lang } = Astro.props;
+const content = educationContent[lang]
+---
+
 <section
-      id="education"
-      class="min-h-fit sm:h-screen sm:max-h-[750px] bg-blue-100 h-screen pt-20"
-    >
-      Education
-    </section>
+  id="education"
+  class="h-fit scroll-mt-20">
+  <div class="w-[90%] mx-auto">
+    <h1 class="pt-1 text-5xl font-bold text-center">🎓 {content.header}</h1>
+    <p class="pt-5">
+      {content.line1}
+    </p>
+    <Collapse client:load />
+    <h2 class="text-2xl text-center mt-5">{content.line2}</h2>
+    <div class="flex justify-center items-center py-3 w-full">
+      <ImageSlider client:load>
+        {
+          imgList.map((x) => {
+            return (
+              <Image src={x} alt="splash-art" class="object-scale-down"/>
+            );
+          })
+        }
+      </ImageSlider>
+    </div>
+  </div>
+</section>
