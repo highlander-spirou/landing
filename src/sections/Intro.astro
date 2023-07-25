@@ -1,0 +1,17 @@
+---
+import i18next, { t } from "i18next";
+import { Trans, HeadHrefLangs } from "astro-i18next/components";
+---
+
+<section
+  id="introduction"
+  class="bg-red-100 relative min-h-[750px] h-screen sm:max-h-[650px] flex items-center justify-center sm:block -mt-10 sm:pt-20 sm:pb-5 scroll-mt-20">
+  <h1>{t("home.title")}</h1>
+  <p>
+    <Trans i18nKey="home.subtitle">
+      This is a <em>more complex</em> string to translate, mixed with <strong
+        >html elements
+      </strong> such as <a href="https://example.com/">a cool link</a>!
+    </Trans>
+  </p>
+</section>

@@ -1,32 +1,60 @@
 ---
-import '@fontsource-variable/nunito';
+import "@fontsource-variable/nunito";
 
-import NavbarMobile from "@components/Navbar/NavbarMobile";
-import Navbar from "@components/Navbar/Navbar";
+import NavAstro from "@components/Navbar/NavAstro.astro";
+import BottomNav from "@components/Navbar/BottomNav.astro";
+// import NavbarTest from "@components/Navbar/NavbarTest";
+// import Navbar from "@components/Navbar/Navbar";
+
 import Introduction from "../sections/Introduction.astro";
 import Education from "../sections/Education.astro";
 import Experiences from "../sections/Experiences.astro";
 ---
 
+<script>
+  import { $settings } from "src/store/config";
+
+  $settings.subscribe((value) => {
+    document.documentElement.setAttribute('data-theme', value.theme)
+  })
+</script>
+
+<script>
+  import $currentSection from "src/store/currentSection";
+
+  const sections = document.querySelectorAll("section");
+
+  window.addEventListener("scroll", () => {
+    let sectionId;
+    sections.forEach((section) => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      sectionId = section.getAttribute("id");
+      if (
+        window.scrollY > sectionTop &&
+        window.scrollY <= sectionTop + sectionHeight
+      ) {
+        $currentSection.set(sectionId);
+      }
+    });
+  });
+</script>
+
 <html lang="vi" data-theme="emerald">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="relative">
     <div class="h-20 sticky top-0 bg-base-100 z-10">
-      <div class="block sm:hidden h-full">
-        <NavbarMobile client:visible />
-      </div>
-      <div class="hidden sm:block h-full">
-        <Navbar client:visible />
-      </div>
+      <NavAstro />
     </div>
 
-    <Introduction lang="vi"/>
-    <Education lang="vi"/>
-    <Experiences lang="vi"/>
+    <Introduction lang="vi" />
+    <Education lang="vi" />
+    <Experiences lang="vi" />
+    <BottomNav />
   </body>
 </html>
 

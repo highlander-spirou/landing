@@ -1,0 +1,42 @@
+---
+import { changeLanguage } from "i18next";
+import "@fontsource-variable/nunito";
+import NavbarMobile from "@components/Navbar/NavbarMobile";
+import Navbar from "@components/Navbar/Navbar";
+import Introduction from "../sections/Introduction.astro";
+import Education from "../sections/Education.astro";
+import Experiences from "../sections/Experiences.astro";
+
+changeLanguage("en");
+---
+
+<html lang="vi" data-theme="emerald">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="h-20 sticky top-0 bg-base-100 z-10">
+      <div class="block sm:hidden h-full">
+        <NavbarMobile client:visible />
+      </div>
+      <div class="hidden sm:block h-full">
+        <Navbar client:visible />
+      </div>
+    </div>
+
+    <Introduction lang="vi"/>
+    <Education lang="vi"/>
+    <Experiences lang="vi"/>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Nunito Variable", sans-serif;
+  }
+</style>
