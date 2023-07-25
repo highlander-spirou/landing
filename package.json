@@ -21,6 +21,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "astro": "^2.6.5",
     "astro-i18next": "^1.0.0-beta.21",
+    "astro-seo-metadata": "^0.6.0",
     "nanostores": "^0.9.3",
     "seamless-scroll-polyfill": "^2.3.4",
     "solid-js": "^1.4.3",

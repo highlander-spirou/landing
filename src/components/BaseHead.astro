@@ -1,15 +1,23 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
-
-const { title, description } = Astro.props;
+import { SEOMetadata } from "astro-seo-metadata";
 ---
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="generator" content={Astro.generator} />
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+  <SEOMetadata
+    siteName={"Nhân Lê's portfolio website"}
+    title={"Nhân's resumé"}
+    description={"This is Lê Phan Thiện Nhân's CV website"}
+    image={"/portfolio.webp"}
+    favicon={"/favicon.svg"}
+    author="Shyn Lê"
+    copyright="ISC"
+    astroSitemap={true}
+    canonicalUrl={Astro.url.toString()}
+    type={"website"}
+    astroGenerator={true}
+  />
+
+  <!-- ... -->
+</head>

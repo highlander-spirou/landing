@@ -1,6 +1,6 @@
 ---
 import ThemeBtn from "@components/ThemeBtn";
-import LangBtn from "@components/ThemeBtn/LangBtn";
+import LangBtn from "@components/ThemeBtn/LangBtn.astro";
 
 const navItems = [
   { id: "introduction", label: "Introduction" },
@@ -72,7 +72,7 @@ const navItems = [
         <li>
           <div class="flex justify-between">
             <div>Language</div>
-            <LangBtn client:load />
+            <LangBtn/>
           </div>
         </li>
       </ul>

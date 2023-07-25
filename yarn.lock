@@ -1046,6 +1046,11 @@ astro-i18next@^1.0.0-beta.21:
     locale-emoji "^0.3.0"
     pathe "^1.1.0"
 
+astro-seo-metadata@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/astro-seo-metadata/-/astro-seo-metadata-0.6.0.tgz#1652a04f7996e0b83610efb32d429f40dc7d97b9"
+  integrity sha512-2wN3kHy4KOorieZxvzYdnXl8h3imUrZdKE+N5xLA3T9/fxHXqNXtXEuJSYFSLU+EfpUcdS6jMncuBC4nQpAIuA==
+
 astro@^2.6.5:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/astro/-/astro-2.7.0.tgz#11060c3f4e0dd9aee7f0034729838aecdf6a89b7"

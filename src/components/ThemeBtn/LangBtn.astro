@@ -1,0 +1,9 @@
+<script>
+  const curlang = document.documentElement.getAttribute("lang")
+
+  const langBtn = document.getElementById('lang-btn') as HTMLAnchorElement
+  langBtn.innerText = curlang
+  langBtn.href = curlang === "vi" ? "/" : "/vi"
+</script>
+
+<a id="lang-btn" class="uppercase"></a>
